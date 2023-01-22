@@ -2,6 +2,7 @@ import {Habit} from './components/HabitDay'
 import {Plus} from 'phosphor-react'
 import { Header } from './components/Header'
 import { SummaryTable } from './components/SummaryTable'
+import './lib/day.js'
 
 function App() {
     return (
