@@ -1,6 +1,9 @@
+import logo from '../../assets/logo.svg';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useState, FormEvent } from 'react';
-import { auth } from '../services/firebase';
+import { auth } from '../../services/firebase';
+import { ArrowArcLeft, ArrowLeft, ArrowLineLeft } from 'phosphor-react';
+import { Link } from 'react-router-dom';
 
 export function Register(){
     const [email, setEmail] = useState('');
@@ -23,7 +26,8 @@ export function Register(){
     }
 
     return(
-        <div className='w-[500px] p-10 mx-auto bg-zinc-800 rounded-lg '>
+        <div className='w-full max-w-4xl mx-auto flex gap-4'>
+              <div className='w-[500px] p-10 mx-auto bg-zinc-800 rounded-lg '>
                 <h2 className='text-3xl text-zinc-200 font-bold  pb-10 '>Crie sua conta</h2>
                 <form className='mx-auto flex flex-col gap-4' >                    
                         <input type={'text'} id="name" name='name' placeholder="Digite seu nome" className='rounded-lg bg-zinc-900 border border-zinc-900 h-14 p-2'/>
@@ -49,5 +53,20 @@ export function Register(){
                     </button> 
                 </form>
         </div>
+
+            <div className='p-10 w-full h-full mx-auto flex flex-col items-start gap-20 '>
+                <img src={logo} alt="Habits" />
+
+                <div className='text-zinc-200 text-2xl leading-tight font-semibold '>
+                    Crie e monitore hábitos no seu dia-a-dia. <br/> 
+                    Um passo de cada vez e você alcança sua meta!!
+                </div> 
+                
+                    <Link to={'/'} className="flex items-center justify-center gap-3 text-lg text-zinc-300 ">
+                    <ArrowLeft weight='bold' className='text-violet-500'/>
+                    Voltar para o Login
+                    </Link>
+            </div>                        
+         </div> 
     )
 }
